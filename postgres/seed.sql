@@ -1,0 +1,1 @@
+INSERT INTO users (username,email) VALUES ('aaw0kenn','thiti.mwk.main@gmail.com')
