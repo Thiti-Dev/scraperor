@@ -6,3 +6,16 @@ type User{
 type Query{
     users: [User!]!
 }
+
+input ScrapeInput{
+    pointer: String!
+    target_url: String!
+}
+
+type ScrapeOutput{
+    elements: [String!]!
+}
+
+type Mutation {
+    scrapeNow(input:ScrapeInput): ScrapeOutput!
+}
