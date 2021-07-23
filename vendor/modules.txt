@@ -63,6 +63,9 @@ github.com/hashicorp/golang-lru
 github.com/hashicorp/golang-lru/simplelru
 # github.com/jinzhu/inflection v1.0.0
 github.com/jinzhu/inflection
+# github.com/joho/godotenv v1.3.0
+## explicit
+github.com/joho/godotenv
 # github.com/kennygrant/sanitize v1.2.4
 github.com/kennygrant/sanitize
 # github.com/mitchellh/mapstructure v0.0.0-20180203102830-a4e142e9c047
