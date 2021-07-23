@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -12,17 +13,26 @@ import (
 	"github.com/Thiti-Dev/scraperor/graph/generated"
 	"github.com/Thiti-Dev/scraperor/postgres"
 	"github.com/go-pg/pg/v10"
+	"github.com/joho/godotenv"
 )
 
 const defaultPort = "8080"
 
 func main() {
 
+	// ─── LOADING ENV FILE ON LOCAL DEVELOPMENT ──────────────────────────────────────
+	err := godotenv.Load(".env")
+	if err != nil {
+		fmt.Println("[DEBUG]: No .env found")
+	}
+	// ────────────────────────────────────────────────────────────────────────────────
+
 	DB := postgres.New(&pg.Options{
-		Addr:     ":5432",
-		User:     "postgres",
-		Password: "root",
-		Database: "scraperor",
+		Addr:    os.Getenv("ELEPHANTSQL_ADDRESS"),
+		User:  	os.Getenv("ELEPHANTSQL_USER"),
+		Password: os.Getenv("ELEPHANTSQL_PASSWORD"),
+		Database: os.Getenv("ELEPHANTSQL_DATABASE"),
+		
 	})
 
 	defer DB.Close()
